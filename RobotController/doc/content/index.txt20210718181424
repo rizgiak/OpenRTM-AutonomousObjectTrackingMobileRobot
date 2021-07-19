@@ -122,7 +122,6 @@ Name            Type        Data type                      Purpose
 in              InPort      RTC::TimedShortSeq             
 x_in            InPort      RTC::TimedLong                 
 y_in            InPort      RTC::TimedLong                 
-vel_in          InPort      RTC::TimedVelocity2D           
 out             OutPort     RTC::TimedVelocity2D           
 =============== =========== ============================== =======
 

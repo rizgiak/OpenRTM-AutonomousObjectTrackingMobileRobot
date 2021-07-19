@@ -247,10 +247,6 @@ class RobotController
   /*!
    */
   RTC::InPort<RTC::TimedLong> m_y_inIn;
-  RTC::TimedVelocity2D m_vel_in;
-  /*!
-   */
-  RTC::InPort<RTC::TimedVelocity2D> m_vel_inIn;
   
   // </rtc-template>
 

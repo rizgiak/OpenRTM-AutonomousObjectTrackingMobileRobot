@@ -114,24 +114,6 @@ Lang Type:
 		RangeHigh:
 		DefaultValue:
 
-	Name:        vel_in
-	PortNumber:  3
-	Description: 
-	PortType: 
-	DataType:    RTC::TimedVelocity2D
-	MaxOut: 
-	[Data Elements]
-		Name:
-		Type:            
-		Number:          
-		Semantics:       
-		Unit:            
-		Frequency:       
-		Operation Cycle: 
-		RangeLow:
-		RangeHigh:
-		DefaultValue:
-
 
 # </rtc-template>
 

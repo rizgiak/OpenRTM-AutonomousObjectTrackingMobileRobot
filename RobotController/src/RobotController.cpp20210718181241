@@ -55,7 +55,6 @@ RobotController::RobotController(RTC::Manager* manager)
     m_inIn("in", m_in),
     m_x_inIn("x_in", m_x_in),
     m_y_inIn("y_in", m_y_in),
-    m_vel_inIn("vel_in", m_vel_in),
     m_outOut("out", m_out)
 
     // </rtc-template>
@@ -79,7 +78,6 @@ RTC::ReturnCode_t RobotController::onInitialize()
   addInPort("in", m_inIn);
   addInPort("x_in", m_x_inIn);
   addInPort("y_in", m_y_inIn);
-  addInPort("vel_in", m_vel_inIn);
 
   // Set OutPort buffer
   addOutPort("out", m_outOut);
@@ -147,15 +145,6 @@ RTC::ReturnCode_t RobotController::onDeactivated(RTC::UniqueId ec_id)
 
 RTC::ReturnCode_t RobotController::onExecute(RTC::UniqueId ec_id)
 {
-  //If there is input from joystick, the robot will prioritize it first
-  if (m_vel_inIn.isNew()) {
-    m_vel_inIn.read();
-    m_out.data.vx = m_vel_in.data.vx;
-    m_out.data.va = m_vel_in.data.va;
-    m_outOut.write();
-    return RTC::RTC_OK;
-  }
-
   // Confirm the existence of input data
   if (m_inIn.isNew())
   {
@@ -183,6 +172,9 @@ RTC::ReturnCode_t RobotController::onExecute(RTC::UniqueId ec_id)
     m_speed_x = (float)(m_y_in.data / 320.0);
   }
 
+  
+
+
   printf("X:%1.2f, R:%1.2f\n",m_speed_x, m_speed_r);
 
   // Determine if you want to stop only when moving forward
@@ -201,7 +193,6 @@ RTC::ReturnCode_t RobotController::onExecute(RTC::UniqueId ec_id)
       }
     }
   }
-
   // If there is no sensor with a value higher than the set value, operate with the value of the configuration parameter
   m_out.data.vx = m_speed_x;
   m_out.data.va = m_speed_r;

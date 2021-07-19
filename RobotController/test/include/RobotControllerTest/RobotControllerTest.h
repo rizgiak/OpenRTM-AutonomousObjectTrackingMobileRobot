@@ -273,6 +273,10 @@ class RobotControllerTest
   /*!
    */
   RTC::OutPort<RTC::TimedLong> m_y_inOut;
+  RTC::TimedVelocity2D m_vel_in;
+  /*!
+   */
+  RTC::OutPort<RTC::TimedVelocity2D> m_vel_inOut;
   
   // </rtc-template>
 

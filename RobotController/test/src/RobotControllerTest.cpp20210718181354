@@ -55,7 +55,6 @@ RobotControllerTest::RobotControllerTest(RTC::Manager* manager)
     m_inIn("in", m_in),
     m_x_inIn("x_in", m_x_in),
     m_y_inIn("y_in", m_y_in),
-    m_vel_inIn("vel_in", m_vel_in),
     m_outOut("out", m_out)
 
     // </rtc-template>
@@ -82,7 +81,6 @@ RTC::ReturnCode_t RobotControllerTest::onInitialize()
   addOutPort("in", m_inOut);
   addOutPort("x_in", m_x_inOut);
   addOutPort("y_in", m_y_inOut);
-  addOutPort("vel_in", m_vel_inOut);
 
   // Set service provider to Ports
 
